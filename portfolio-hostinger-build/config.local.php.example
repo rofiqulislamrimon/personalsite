@@ -1,0 +1,14 @@
+<?php
+declare( strict_types=1 );
+
+/**
+ * Copy this file to config.local.php (same folder) and fill in your real
+ * database credentials. config.local.php is gitignored — it will never
+ * be committed or pushed to GitHub.
+ */
+
+return array(
+	'db_name' => 'u123456789_portfolio',
+	'db_user' => 'u123456789_admin',
+	'db_pass' => 'your-real-password',
+);
