@@ -1,4 +1,6 @@
 import './globals.css';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
 export const metadata = {
   title: 'Md Rofiqul Islam — WordPress Plugin & PHP Developer',
@@ -9,7 +11,11 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Header />
+        <main>{children}</main>
+        <Footer />
+      </body>
     </html>
   );
 }

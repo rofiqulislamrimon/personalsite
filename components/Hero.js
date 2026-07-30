@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import NodeGraph from './NodeGraph';
 
 export default function Hero() {
@@ -16,12 +17,12 @@ export default function Hero() {
             WPCS on the first try.
           </p>
           <div className="hero-actions">
-            <a href="#projects" className="btn btn-solid">
+            <Link href="/projects" className="btn btn-solid">
               View projects
-            </a>
-            <a href="#contact" className="btn">
+            </Link>
+            <Link href="/contact" className="btn">
               Get in touch
-            </a>
+            </Link>
           </div>
         </div>
         <div className="hero-visual">

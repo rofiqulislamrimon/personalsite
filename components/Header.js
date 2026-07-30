@@ -1,22 +1,24 @@
+import Link from 'next/link';
+
 const links = [
-  { href: '#about', label: 'About' },
-  { href: '#skills', label: 'Skills' },
-  { href: '#projects', label: 'Projects' },
-  { href: '#contact', label: 'Contact' },
+  { href: '/about', label: 'About' },
+  { href: '/skills', label: 'Skills' },
+  { href: '/projects', label: 'Projects' },
+  { href: '/contact', label: 'Contact' },
 ];
 
 export default function Header() {
   return (
     <header className="site-header">
       <div className="container site-header-inner">
-        <a href="#top" className="logo">
+        <Link href="/" className="logo">
           rofiqul<span className="logo-dot">.</span>dev
-        </a>
+        </Link>
         <nav className="nav">
           {links.map((l) => (
-            <a key={l.href} href={l.href}>
+            <Link key={l.href} href={l.href}>
               {l.label}
-            </a>
+            </Link>
           ))}
         </nav>
       </div>
