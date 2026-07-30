@@ -1,0 +1,18 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Real credentials — never commit these
+php/config.local.php
+
+# Env files
+.env
+.env.local
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.log
