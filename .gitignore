@@ -5,6 +5,9 @@ node_modules/
 .next/
 out/
 
+# Generated Hostinger deploy bundle (rebuild it from out/ + php/)
+portfolio-hostinger-build/
+
 # Real credentials — never commit these
 php/config.local.php
 

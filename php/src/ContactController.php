@@ -37,19 +37,31 @@ final class ContactController {
 
 		$contact = new ContactMessage( $safeName, $email, $message, $ip );
 
+		// Persisting and emailing are independent: a message must survive
+		// either a broken mail() or a failed DB write.
+		$saved = false;
+
 		try {
 			$contact->save();
+			$saved = true;
 		} catch ( Throwable $e ) {
-			// Don't fail the whole request just because the DB write failed —
-			// still try to email the message through.
 			error_log( 'Contact save failed: ' . $e->getMessage() );
 		}
 
-		if ( ! Mailer::send( $contact ) ) {
+		$mailed = Mailer::send( $contact );
+
+		if ( ! $mailed && ! $saved ) {
 			$this->respond( 500, array( 'ok' => false, 'error' => 'Could not send message.' ) );
 		}
 
-		$this->respond( 200, array( 'ok' => true ) );
+		$this->respond(
+			200,
+			array(
+				'ok'      => true,
+				'saved'   => $saved,
+				'mailed'  => $mailed,
+			)
+		);
 	}
 
 	/**
